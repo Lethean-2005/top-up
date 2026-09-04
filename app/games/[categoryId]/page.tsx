@@ -4,6 +4,10 @@ import { FazercardsError, getTopupOffers, listValidateIdCategories } from "@/lib
 import { findValidateCategory } from "@/lib/utils";
 import OrderForm from "@/components/OrderForm";
 
+// This calls a live, key-authenticated API — never prerender it at build
+// time (the build environment may not have the secret key available yet).
+export const dynamic = "force-dynamic";
+
 export default async function GamePage({
   params,
 }: {

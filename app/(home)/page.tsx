@@ -1,6 +1,10 @@
 import { listTopupCategories } from "@/lib/fazercards";
 import GameGrid from "@/components/GameGrid";
 
+// This calls a live, key-authenticated API — never prerender it at build
+// time (the build environment may not have the secret key available yet).
+export const dynamic = "force-dynamic";
+
 export default async function HomePage() {
   const data = await listTopupCategories({ limit: 500 });
 
